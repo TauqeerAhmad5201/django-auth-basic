@@ -1,0 +1,34 @@
+<!-- templates/registration/signup.html -->
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<h2 class="text-center mt-2">Sign Up</h2>
+<form method="post">
+  {% csrf_token %}
+  <div class="form py-1" >
+    <div class="form w-25  mx-auto mt-3 ">
+      {{ form.firstname|as_crispy_field }}
+    </div>
+    <div class="form w-25  mx-auto mt-3 ">
+      {{ form.email|as_crispy_field }}
+    </div>
+    <div class="form w-25  mx-auto mt-3 ">
+      {{ form.password1|as_crispy_field }}
+    </div>
+    <div class="form w-25  mx-auto mt-3 ">
+      {{ form.password2|as_crispy_field }}
+    </div>
+  </div>
+  {% comment %} {{ form.as_p }} {% endcomment %}
+  {% comment %} {{ form|crispy}} {% endcomment %}
+  <div class="text-center">  
+    <button type="submit" class="btn btn-success">Sign Up</button> 
+    <a href="/accounts/login"> <button  class="btn btn-success">Already an user?</button></a>
+  </div>
+
+</form>
+{% endblock %} 
+
